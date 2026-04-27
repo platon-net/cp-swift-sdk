@@ -26,6 +26,15 @@ All URIs are relative to *https://setup.platon.sk/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CartAPI* | [**checkCartCoupon**](docs/CartAPI.md#checkcartcoupon) | **POST** /cart/coupons/check | Check and apply cart coupon
+*CartAPI* | [**createCartItem**](docs/CartAPI.md#createcartitem) | **POST** /cart/items | Add item to cart
+*CartAPI* | [**deleteCartItem**](docs/CartAPI.md#deletecartitem) | **DELETE** /cart/items/{cartItemId} | Remove item from cart
+*CartAPI* | [**getCartBillingAddress**](docs/CartAPI.md#getcartbillingaddress) | **GET** /cart/billing-address | Get cart billing address
+*CartAPI* | [**getCartCoupon**](docs/CartAPI.md#getcartcoupon) | **GET** /cart/coupons/current | Get current cart coupon
+*CartAPI* | [**getCartTotal**](docs/CartAPI.md#getcarttotal) | **GET** /cart/total | Get cart total
+*CartAPI* | [**listCartItems**](docs/CartAPI.md#listcartitems) | **GET** /cart/items | List cart items
+*CartAPI* | [**updateCartItem**](docs/CartAPI.md#updatecartitem) | **PATCH** /cart/items/{cartItemId} | Update cart item data
+*CartAPI* | [**updateCartItemCount**](docs/CartAPI.md#updatecartitemcount) | **PATCH** /cart/items/by-product/count | Update cart item count by product and domain
 *DNSAPI* | [**createDnsRecord**](docs/DNSAPI.md#creatednsrecord) | **POST** /dns/{domain}/records | Create DNS record
 *DNSAPI* | [**deleteDnsRecord**](docs/DNSAPI.md#deletednsrecord) | **DELETE** /dns/{domain}/records/{recordId} | Delete DNS record
 *DNSAPI* | [**getDnsRecords**](docs/DNSAPI.md#getdnsrecords) | **GET** /dns/{domain}/records | Get DNS records by domain
@@ -63,6 +72,8 @@ Class | Method | HTTP request | Description
 
  - [ChangeDomainNameserversRequest](docs/ChangeDomainNameserversRequest.md)
  - [ChangeMailboxPasswordRequest](docs/ChangeMailboxPasswordRequest.md)
+ - [CheckCartCouponRequest](docs/CheckCartCouponRequest.md)
+ - [CreateCartItemRequest](docs/CreateCartItemRequest.md)
  - [CreateDnsRecord200Response](docs/CreateDnsRecord200Response.md)
  - [CreateDnsRecordRequest](docs/CreateDnsRecordRequest.md)
  - [CreateMailboxRequest](docs/CreateMailboxRequest.md)
@@ -93,6 +104,9 @@ Class | Method | HTTP request | Description
  - [SetPreferredVehicleRequest](docs/SetPreferredVehicleRequest.md)
  - [Time200Response](docs/Time200Response.md)
  - [Time200ResponseData](docs/Time200ResponseData.md)
+ - [UpdateCartItemCountRequest](docs/UpdateCartItemCountRequest.md)
+ - [UpdateCartItemRequest](docs/UpdateCartItemRequest.md)
+ - [UpdateCartItemRequestData](docs/UpdateCartItemRequestData.md)
  - [UpdateDnsRecordRequest](docs/UpdateDnsRecordRequest.md)
  - [VerifyOauthRequest200Response](docs/VerifyOauthRequest200Response.md)
  - [VerifyOauthRequest200ResponseData](docs/VerifyOauthRequest200ResponseData.md)
