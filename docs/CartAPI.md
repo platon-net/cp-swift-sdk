@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**getCartCoupon**](CartAPI.md#getcartcoupon) | **GET** /cart/coupons/current | Get current cart coupon
 [**getCartTotal**](CartAPI.md#getcarttotal) | **GET** /cart/total | Get cart total
 [**listCartItems**](CartAPI.md#listcartitems) | **GET** /cart/items | List cart items
+[**mergeCartItems**](CartAPI.md#mergecartitems) | **POST** /cart/items/merge | Merge anonymous cart items into current customer cart
 [**updateCartItem**](CartAPI.md#updatecartitem) | **PATCH** /cart/items/{cartItemId} | Update cart item data
 [**updateCartItemCount**](CartAPI.md#updatecartitemcount) | **PATCH** /cart/items/by-product/count | Update cart item count by product and domain
 
@@ -351,6 +352,54 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **mergeCartItems**
+```swift
+    open class func mergeCartItems(mergeCartItemsRequest: MergeCartItemsRequest, completion: @escaping (_ data: MergeCartItems200Response?, _ error: Error?) -> Void)
+```
+
+Merge anonymous cart items into current customer cart
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import ControlPanelSDK
+
+let mergeCartItemsRequest = mergeCartItems_request(fromToken: "fromToken_example") // MergeCartItemsRequest | Anonymous cart merge payload
+
+// Merge anonymous cart items into current customer cart
+CartAPI.mergeCartItems(mergeCartItemsRequest: mergeCartItemsRequest) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **mergeCartItemsRequest** | [**MergeCartItemsRequest**](MergeCartItemsRequest.md) | Anonymous cart merge payload | 
+
+### Return type
+
+[**MergeCartItems200Response**](MergeCartItems200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

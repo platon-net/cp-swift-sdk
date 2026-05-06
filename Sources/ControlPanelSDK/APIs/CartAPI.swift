@@ -306,6 +306,45 @@ open class CartAPI {
     }
 
     /**
+     Merge anonymous cart items into current customer cart
+     
+     - parameter mergeCartItemsRequest: (body) Anonymous cart merge payload 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: MergeCartItems200Response
+     */
+    open class func mergeCartItems(mergeCartItemsRequest: MergeCartItemsRequest, apiConfiguration: ControlPanelSDKAPIConfiguration = ControlPanelSDKAPIConfiguration.shared) async throws(ErrorResponse) -> MergeCartItems200Response {
+        return try await mergeCartItemsWithRequestBuilder(mergeCartItemsRequest: mergeCartItemsRequest, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Merge anonymous cart items into current customer cart
+     - POST /cart/items/merge
+     - Bearer Token:
+       - type: http
+       - name: bearerAuth
+     - parameter mergeCartItemsRequest: (body) Anonymous cart merge payload 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<MergeCartItems200Response> 
+     */
+    open class func mergeCartItemsWithRequestBuilder(mergeCartItemsRequest: MergeCartItemsRequest, apiConfiguration: ControlPanelSDKAPIConfiguration = ControlPanelSDKAPIConfiguration.shared) -> RequestBuilder<MergeCartItems200Response> {
+        let localVariablePath = "/cart/items/merge"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: mergeCartItemsRequest, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<MergeCartItems200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
      Update cart item data
      
      - parameter cartItemId: (path) Cart item ID 

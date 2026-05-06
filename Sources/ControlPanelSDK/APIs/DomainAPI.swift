@@ -276,4 +276,54 @@ open class DomainAPI {
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
+
+    /**
+     Check domain WHOIS availability and prices
+     
+     - parameter domain: (path) Domain name 
+     - parameter cname: (query) Customer name for price context (optional)
+     - parameter currencyId: (query) Currency ID (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: WhoisDomain200Response
+     */
+    open class func whoisDomain(domain: String, cname: String? = nil, currencyId: String? = nil, apiConfiguration: ControlPanelSDKAPIConfiguration = ControlPanelSDKAPIConfiguration.shared) async throws(ErrorResponse) -> WhoisDomain200Response {
+        return try await whoisDomainWithRequestBuilder(domain: domain, cname: cname, currencyId: currencyId, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Check domain WHOIS availability and prices
+     - GET /domains/{domain}/whois
+     - Bearer Token:
+       - type: http
+       - name: bearerAuth
+     - parameter domain: (path) Domain name 
+     - parameter cname: (query) Customer name for price context (optional)
+     - parameter currencyId: (query) Currency ID (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<WhoisDomain200Response> 
+     */
+    open class func whoisDomainWithRequestBuilder(domain: String, cname: String? = nil, currencyId: String? = nil, apiConfiguration: ControlPanelSDKAPIConfiguration = ControlPanelSDKAPIConfiguration.shared) -> RequestBuilder<WhoisDomain200Response> {
+        var localVariablePath = "/domains/{domain}/whois"
+        let domainPreEscape = "\(APIHelper.mapValueToPathItem(domain))"
+        let domainPostEscape = domainPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{domain}", with: domainPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "cname": (wrappedValue: cname?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "currency_id": (wrappedValue: currencyId?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<WhoisDomain200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
 }

@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**listDomains**](DomainAPI.md#listdomains) | **GET** /domains | List customer domains
 [**registerDomain**](DomainAPI.md#registerdomain) | **POST** /domains/{domain}/register | Register domain
 [**renewDomain**](DomainAPI.md#renewdomain) | **POST** /domains/{domain}/renew | Renew domain
+[**whoisDomain**](DomainAPI.md#whoisdomain) | **GET** /domains/{domain}/whois | Check domain WHOIS availability and prices
 
 
 # **changeDomainNameservers**
@@ -306,6 +307,58 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **whoisDomain**
+```swift
+    open class func whoisDomain(domain: String, cname: String? = nil, currencyId: String? = nil, completion: @escaping (_ data: WhoisDomain200Response?, _ error: Error?) -> Void)
+```
+
+Check domain WHOIS availability and prices
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import ControlPanelSDK
+
+let domain = "domain_example" // String | Domain name
+let cname = "cname_example" // String | Customer name for price context (optional)
+let currencyId = "currencyId_example" // String | Currency ID (optional)
+
+// Check domain WHOIS availability and prices
+DomainAPI.whoisDomain(domain: domain, cname: cname, currencyId: currencyId) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **domain** | **String** | Domain name | 
+ **cname** | **String** | Customer name for price context | [optional] 
+ **currencyId** | **String** | Currency ID | [optional] 
+
+### Return type
+
+[**WhoisDomain200Response**](WhoisDomain200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
