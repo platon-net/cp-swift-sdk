@@ -4,6 +4,7 @@ Cartfile
 ControlPanelSDK.podspec
 Package.swift
 README.md
+Sources/ControlPanelSDK/APIs/AntispamAPI.swift
 Sources/ControlPanelSDK/APIs/AuthAPI.swift
 Sources/ControlPanelSDK/APIs/CartAPI.swift
 Sources/ControlPanelSDK/APIs/DNSAPI.swift
@@ -25,9 +26,12 @@ Sources/ControlPanelSDK/Infrastructure/OpenISO8601DateFormatter.swift
 Sources/ControlPanelSDK/Infrastructure/SynchronizedDictionary.swift
 Sources/ControlPanelSDK/Infrastructure/URLSessionImplementations.swift
 Sources/ControlPanelSDK/Infrastructure/Validation.swift
+Sources/ControlPanelSDK/Models/AddAntispamMaildataRequest.swift
 Sources/ControlPanelSDK/Models/ChangeDomainNameserversRequest.swift
 Sources/ControlPanelSDK/Models/ChangeMailboxPasswordRequest.swift
+Sources/ControlPanelSDK/Models/CheckAntispamMaildataRulesRequest.swift
 Sources/ControlPanelSDK/Models/CheckCartCouponRequest.swift
+Sources/ControlPanelSDK/Models/CreateAntispamEmailRuleRequest.swift
 Sources/ControlPanelSDK/Models/CreateAuthToken200Response.swift
 Sources/ControlPanelSDK/Models/CreateAuthToken200ResponseData.swift
 Sources/ControlPanelSDK/Models/CreateCartItemRequest.swift
@@ -76,11 +80,15 @@ Sources/ControlPanelSDK/Models/VerifyOauthRequest200ResponseData.swift
 Sources/ControlPanelSDK/Models/WhoisDomain200Response.swift
 Sources/ControlPanelSDK/Models/WhoisDomain200ResponseData.swift
 Sources/ControlPanelSDK/Models/WhoisDomain200ResponseDataRetval.swift
+docs/AddAntispamMaildataRequest.md
+docs/AntispamAPI.md
 docs/AuthAPI.md
 docs/CartAPI.md
 docs/ChangeDomainNameserversRequest.md
 docs/ChangeMailboxPasswordRequest.md
+docs/CheckAntispamMaildataRulesRequest.md
 docs/CheckCartCouponRequest.md
+docs/CreateAntispamEmailRuleRequest.md
 docs/CreateAuthToken200Response.md
 docs/CreateAuthToken200ResponseData.md
 docs/CreateCartItemRequest.md

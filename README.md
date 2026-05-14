@@ -39,6 +39,9 @@ All URIs are relative to *https://setup.platon.sk/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AntispamAPI* | [**addAntispamMaildata**](docs/AntispamAPI.md#addantispammaildata) | **POST** /antispam/maildata | Add maildata to antispam engine
+*AntispamAPI* | [**checkAntispamMaildataRules**](docs/AntispamAPI.md#checkantispammaildatarules) | **POST** /antispam/maildata/check | Check maildata against existing antispam rules
+*AntispamAPI* | [**createAntispamEmailRule**](docs/AntispamAPI.md#createantispamemailrule) | **POST** /antispam/rules | Create antispam email rule or increment existing rule hitcount
 *AuthAPI* | [**createAuthToken**](docs/AuthAPI.md#createauthtoken) | **POST** /auth/token | Create anonymous auth token
 *CartAPI* | [**checkCartCoupon**](docs/CartAPI.md#checkcartcoupon) | **POST** /cart/coupons/check | Check and apply cart coupon
 *CartAPI* | [**createCartItem**](docs/CartAPI.md#createcartitem) | **POST** /cart/items | Add item to cart
@@ -87,9 +90,12 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AddAntispamMaildataRequest](docs/AddAntispamMaildataRequest.md)
  - [ChangeDomainNameserversRequest](docs/ChangeDomainNameserversRequest.md)
  - [ChangeMailboxPasswordRequest](docs/ChangeMailboxPasswordRequest.md)
+ - [CheckAntispamMaildataRulesRequest](docs/CheckAntispamMaildataRulesRequest.md)
  - [CheckCartCouponRequest](docs/CheckCartCouponRequest.md)
+ - [CreateAntispamEmailRuleRequest](docs/CreateAntispamEmailRuleRequest.md)
  - [CreateAuthToken200Response](docs/CreateAuthToken200Response.md)
  - [CreateAuthToken200ResponseData](docs/CreateAuthToken200ResponseData.md)
  - [CreateCartItemRequest](docs/CreateCartItemRequest.md)
